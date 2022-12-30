@@ -9,17 +9,20 @@ public class Samochod {
     private int liczba_miejsc;
     private String klimatyzaja; //T lub N, tak lub nie
     private float pojemnosc_silnika;
-    private String nr_rejestracyjny;
+    //private String nr_rejestracyjny;
+    private Object nr_rejestracyjny;
     private String typ_nadwozia;
     private int nr_salonu;
-    private int nr_klienta;
-    private int nr_modelu;
+    //private int nr_klienta;
+    private Object nr_klienta;
+    //private int nr_modelu;
+    private Object nr_modelu;
 
     public Samochod() {
 
     }
 
-    public Samochod(int nr_samochodu, String vin, String rok_produkcji, String rodzaj_paliwa, int przebieg, int liczba_miejsc, String klimatyzaja, float pojemnosc_silnika, String nr_rejestracyjny, String typ_nadwozia, int nr_salonu, int nr_klienta, int nr_modelu) {
+    public Samochod(int nr_samochodu, String vin, String rok_produkcji, String rodzaj_paliwa, int przebieg, int liczba_miejsc, String klimatyzaja, float pojemnosc_silnika, Object nr_rejestracyjny, String typ_nadwozia, int nr_salonu, Object nr_klienta, Object nr_modelu) {
         super();
         this.nr_samochodu = nr_samochodu;
         this.vin = vin;
@@ -68,7 +71,7 @@ public class Samochod {
         return pojemnosc_silnika;
     }
 
-    public String getNr_rejestracyjny() {
+    public Object getNr_rejestracyjny() {
         return nr_rejestracyjny;
     }
 
@@ -80,11 +83,11 @@ public class Samochod {
         return nr_salonu;
     }
 
-    public int getNr_klienta() {
+    public Object getNr_klienta() {
         return nr_klienta;
     }
 
-    public int getNr_modelu() {
+    public Object getNr_modelu() {
         return nr_modelu;
     }
 
@@ -120,7 +123,7 @@ public class Samochod {
         this.pojemnosc_silnika = pojemnosc_silnika;
     }
 
-    public void setNr_rejestracyjny(String nr_rejestracyjny) {
+    public void setNr_rejestracyjny(Object nr_rejestracyjny) {
         this.nr_rejestracyjny = nr_rejestracyjny;
     }
 
@@ -132,11 +135,11 @@ public class Samochod {
         this.nr_salonu = nr_salonu;
     }
 
-    public void setNr_klienta(int nr_klienta) {
+    public void setNr_klienta(Object nr_klienta) {
         this.nr_klienta = nr_klienta;
     }
 
-    public void setNr_modelu(int nr_modelu) {
+    public void setNr_modelu(Object nr_modelu) {
         this.nr_modelu = nr_modelu;
     }
 

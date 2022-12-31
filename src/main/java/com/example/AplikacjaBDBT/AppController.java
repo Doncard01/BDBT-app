@@ -37,10 +37,8 @@ public class AppController implements WebMvcConfigurer {
 
         @RequestMapping("/")
         public String viewHomePage(Model model) {
-            List<Sprzedaz> listSprzedaze = sprzedazeDAO.list();
-            List<Samochod> listSamochody = samochodyDAO.list();
-            model.addAttribute("listSprzedaze", listSprzedaze);
-            model.addAttribute("listSamochody", listSamochody);
+            model.addAttribute("listSprzedaze", sprzedazeDAO.list());
+            model.addAttribute("listSamochody", samochodyDAO.list());
             return "index";
         }
 

@@ -68,34 +68,85 @@
     </div>
 </div>
 
-<!--<div align="center">
-    <h1>Sales Records</h1>
+<div align="center">
+    <h1>Tabela sprzedaży</h1>
 
     <table border="1" cellpadding="10">
 
         <thead>
         <tr>
-            <th>ID</th>
-            <th>Item Name</th>
-            <th>Quantity</th>
-            <th>Amount</th>
+            <th>DATA_SPRZEDAZY</th>
+            <th>NR_PRACOWNIKA</th>
+            <th>NR_SAMOCHODU</th>
+            <th>NR_KLIENTA</th>
             <th>Action</th>
 
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each="sale : ${listSale}">
-            <td th:text="${sale.id}">ID</td>
-            <td th:text="${sale.item}">Item Name</td>
-            <td th:text="${sale.quantity}">Quantity</td>
-            <td th:text="${sale.amount}">Amount</td>
+        <tr th:each="sprzedaz : ${listSprzedaze}">
+            <td th:text="${sprzedaz.DATA_SPRZEDAZY}">DATA_SPRZEDAZY</td>
+            <td th:text="${sprzedaz.NR_PRACOWNIKA}">NR_PRACOWNIKA</td>
+            <td th:text="${sprzedaz.NR_SAMOCHODU}">NR_SAMOCHODU</td>
+            <td th:text="${sprzedaz.NR_KLIENTA}">NR_KLIENTA</td>
         </tr>
         </tbody>
 
     </table>
 
-</div>-->
+</div>
+
+<br>
+<hr size="5">
+<br>
+
+<div align="center">
+    <h1>Tabela samochodów</h1>
+
+    <table border="1" cellpadding="10">
+
+        <thead>
+        <tr>
+            <th>Nr</th>
+            <th>VIN</th>
+            <th>Rok produkcji</th>
+            <th>Rodzaj paliwa</th>
+            <th>Przebieg</th>
+            <th>Liczba miejsc</th>
+            <th>Klimatyzacja</th>
+            <th>Pojemność silnika</th>
+            <th>Nr rejestracyjny</th>
+            <th>Typ nadwozia</th>
+            <th>Nr salonu</th>
+            <th>Nr klienta</th>
+            <th>Nr modelu</th>
+            <th>Action</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="samochod : ${listSamochody}">
+            <td th:text="${samochod.nr_samochodu}">Nr</td>
+            <td th:text="${samochod.vin}">VIN</td>
+            <td th:text="${samochod.rok_produkcji}">Rok produkcji</td>
+            <td th:text="${samochod.rodzaj_paliwa}">Rodzaj paliwa</td>
+            <td th:text="${samochod.przebieg}">Przebieg</td>
+            <td th:text="${samochod.liczba_miejsc}">Liczba miejsc</td>
+            <td th:text="${samochod.klimatyzacja}">Klimatyzacja</td>
+            <td th:text="${samochod.pojemnosc_silnika}">Pojemność silnika</td>
+            <td th:text="${samochod.nr_rejestracyjny}">Nr rejestracyjny</td>
+            <td th:text="${samochod.typ_nadwozia}">Typ nadwozia</td>
+            <td th:text="${samochod.nr_salonu}">Nr salonu</td>
+            <td th:text="${samochod.nr_klienta}">Nr klienta</td>
+            <td th:text="${samochod.nr_modelu}">Nr modelu</td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
 
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>

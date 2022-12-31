@@ -1,5 +1,10 @@
 package com.example.AplikacjaBDBT;
 
+import com.example.AplikacjaBDBT.baza.Samochod;
+import com.example.AplikacjaBDBT.baza.SamochodyDAO;
+import com.example.AplikacjaBDBT.baza.Sprzedaz;
+import com.example.AplikacjaBDBT.baza.SprzedazeDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Configuration
 public class AppController implements WebMvcConfigurer {
@@ -22,6 +28,22 @@ public class AppController implements WebMvcConfigurer {
 
     @Controller
     public static class DashboardController {
+
+        @Autowired
+        private SprzedazeDAO sprzedazeDAO;
+
+        @Autowired
+        private SamochodyDAO samochodyDAO;
+
+        @RequestMapping("/")
+        public String viewHomePage(Model model) {
+            List<Sprzedaz> listSprzedaze = sprzedazeDAO.list();
+            List<Samochod> listSamochody = samochodyDAO.list();
+            model.addAttribute("listSprzedaze", listSprzedaze);
+            model.addAttribute("listSamochody", listSamochody);
+            return "index";
+        }
+
         @RequestMapping
                 ("/main"
                 )
@@ -52,7 +74,7 @@ public class AppController implements WebMvcConfigurer {
     public String showUserPage(Model model) {
         return "user/main_user";
     }
-}
 
+}
 
 

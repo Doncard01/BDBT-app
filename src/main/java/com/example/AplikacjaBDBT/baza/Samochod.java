@@ -7,7 +7,7 @@ public class Samochod {
     private String rodzaj_paliwa;
     private int przebieg;
     private int liczba_miejsc;
-    private String klimatyzaja; //T lub N, tak lub nie
+    private String klimatyzacja; //T lub N, tak lub nie
     private float pojemnosc_silnika;
     //private String nr_rejestracyjny;
     private Object nr_rejestracyjny;
@@ -22,7 +22,7 @@ public class Samochod {
 
     }
 
-    public Samochod(int nr_samochodu, String vin, String rok_produkcji, String rodzaj_paliwa, int przebieg, int liczba_miejsc, String klimatyzaja, float pojemnosc_silnika, Object nr_rejestracyjny, String typ_nadwozia, int nr_salonu, Object nr_klienta, Object nr_modelu) {
+    public Samochod(int nr_samochodu, String vin, String rok_produkcji, String rodzaj_paliwa, int przebieg, int liczba_miejsc, String klimatyzacja, float pojemnosc_silnika, Object nr_rejestracyjny, String typ_nadwozia, int nr_salonu, Object nr_klienta, Object nr_modelu) {
         super();
         this.nr_samochodu = nr_samochodu;
         this.vin = vin;
@@ -30,7 +30,7 @@ public class Samochod {
         this.rodzaj_paliwa = rodzaj_paliwa;
         this.przebieg = przebieg;
         this.liczba_miejsc = liczba_miejsc;
-        this.klimatyzaja = klimatyzaja;
+        this.klimatyzacja = klimatyzacja;
         this.pojemnosc_silnika = pojemnosc_silnika;
         this.nr_rejestracyjny = nr_rejestracyjny;
         this.typ_nadwozia = typ_nadwozia;
@@ -63,8 +63,8 @@ public class Samochod {
         return liczba_miejsc;
     }
 
-    public String getKlimatyzaja() {
-        return klimatyzaja;
+    public String getKlimatyzacja() {
+        return klimatyzacja;
     }
 
     public float getPojemnosc_silnika() {
@@ -115,8 +115,8 @@ public class Samochod {
         this.liczba_miejsc = liczba_miejsc;
     }
 
-    public void setKlimatyzaja(String klimatyzaja) {
-        this.klimatyzaja = klimatyzaja;
+    public void setKlimatyzacja(String klimatyzacja) {
+        this.klimatyzacja = klimatyzacja;
     }
 
     public void setPojemnosc_silnika(float pojemnosc_silnika) {
@@ -152,7 +152,7 @@ public class Samochod {
                 ", rodzaj_paliwa='" + rodzaj_paliwa + '\'' +
                 ", przebieg=" + przebieg +
                 ", liczba_miejsc=" + liczba_miejsc +
-                ", klimatyzaja='" + klimatyzaja + '\'' +
+                ", klimatyzacja='" + klimatyzacja + '\'' +
                 ", pojemnosc_silnika=" + pojemnosc_silnika +
                 ", nr_rejestracyjny='" + nr_rejestracyjny + '\'' +
                 ", typ_nadwozia='" + typ_nadwozia + '\'' +

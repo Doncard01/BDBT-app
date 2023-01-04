@@ -71,7 +71,7 @@
 <div align="center">
 
     <h1>Tabela sprzedaży</h1>
-    <br>
+    <br><br>
     <a href="/new">Wprowadź nową sprzedaż</a>
 
     <table border="1" cellpadding="10">
@@ -93,6 +93,9 @@
             <td th:text="${sprzedaz.NR_PRACOWNIKA}">NR_PRACOWNIKA</td>
             <td th:text="${sprzedaz.NR_SAMOCHODU}">NR_SAMOCHODU</td>
             <td th:text="${sprzedaz.NR_KLIENTA}">NR_KLIENTA</td>
+            <td>
+                <a th:href="@{/edit/{data_sprzedazy}(id=${sprzedaz.DATA_SPRZEDAZY})}">Edytuj</a>
+            </td>
         </tr>
         </tbody>
 

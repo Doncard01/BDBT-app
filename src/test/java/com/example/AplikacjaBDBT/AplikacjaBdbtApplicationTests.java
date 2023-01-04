@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class AplikacjaBdbtApplicationTests {
-	private SprzedazeDAO dao;
-	private SamochodyDAO daoSamochody;
+	private SprzedazeDAO SprzedazeDAO;
+	private SamochodyDAO SamochodyDAO;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -27,14 +27,14 @@ class AplikacjaBdbtApplicationTests {
 		dataSource.setPassword("BDBTGRB02");
 		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
 
-		dao = new SprzedazeDAO(new JdbcTemplate(dataSource));
-		daoSamochody = new SamochodyDAO(new JdbcTemplate(dataSource));
+		SprzedazeDAO = new SprzedazeDAO(new JdbcTemplate(dataSource));
+		SamochodyDAO = new SamochodyDAO(new JdbcTemplate(dataSource));
 	}
 
 	@Test
 	void testList() {
-		List<Sprzedaz> listSprzedaz = dao.list();
-		List<Samochod> listSamochod = daoSamochody.list();
+		List<Sprzedaz> listSprzedaz = SprzedazeDAO.list();
+		List<Samochod> listSamochod = SamochodyDAO.list();
 
 		assertTrue(listSprzedaz.size() > 0); //w bazie na pewno są już jakieś sprzedaże
 		assertTrue(listSamochod.size() > 0); //w bazie na pewno są już jakieś samochody
@@ -49,7 +49,15 @@ class AplikacjaBdbtApplicationTests {
 		sprzedaz.setNR_SAMOCHODU(8);
 		sprzedaz.setNR_KLIENTA(3);
 
-		dao.save(sprzedaz);
+		SprzedazeDAO.save(sprzedaz);
+	}
+
+	@Test
+	void testGet() {
+		String data_sprzedazy = "2023-01-03";
+		Sprzedaz sprzedaz = SprzedazeDAO.get(data_sprzedazy);
+
+		assertNotNull(sprzedaz);
 	}
 
 }

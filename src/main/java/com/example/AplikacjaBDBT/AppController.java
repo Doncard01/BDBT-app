@@ -9,8 +9,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -42,6 +44,14 @@ public class AppController implements WebMvcConfigurer {
             model.addAttribute("listSprzedaze", sprzedazeDAO.list());
             model.addAttribute("listSamochody", samochodyDAO.list());
             return "index";
+        }
+
+        @RequestMapping("/edit/{data_sprzedazy}")
+        public ModelAndView showEditForm(@PathVariable(name = "data_sprzedazy") String data_sprzedazy) {
+            ModelAndView mav = new ModelAndView("edit_form");
+            Sprzedaz sprzedaz = sprzedazeDAO.get(data_sprzedazy);
+            mav.addObject("sprzedaz", sprzedaz);
+            return mav;
         }
 
         @RequestMapping

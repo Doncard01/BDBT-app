@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja sprzedaży</title>
+</head>
+<body>
+<div align="center">
+  <h1>Edycja sprzedaży</h1>
+  <br>
+  <form action="#" th:action="@/{update}" th:object="${sprzedaz}" method="post">
+    <table border="1" cellpadding="10">
+      <tr>
+        <td>Data sprzedaży:</td>
+        <td><input type="date" th:field="*{DATA_SPRZEDAZY}" readonly="readonly"/></td>
+      </tr>
+      <tr>
+        <td>Nr pracownika:</td>
+        <td><input type="number" th:field="*{NR_PRACOWNIKA}"/></td>
+      </tr>
+      <tr>
+        <td>Nr samochodu:</td>
+        <td><input type="number" th:field="*{NR_SAMOCHODU}"/></td>
+      </tr>
+      <tr>
+        <td>Nr klienta:</td>
+        <td><input type="number" th:field="*{NR_KLIENTA}"/></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" value="Zapisz"/></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

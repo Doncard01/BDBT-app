@@ -24,8 +24,16 @@ public class SprzedazeDAO {
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(sprzedaz);
         insertActor.execute(param);
     }
-    public Sprzedaz get(int id) {
-        return null;
+    public Sprzedaz get(String data_sprzedazy) {
+        String sql = "SELECT * FROM SPRZEDAZE WHERE DATA_SPRZEDAZY = ?";
+        Object[] args = {data_sprzedazy};
+        return jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(Sprzedaz.class));
+    }
+
+    public Sprzedaz get1(String data_sprzedazy) {
+        Object[] args = {data_sprzedazy};
+        String sql = "SELECT * FROM SPRZEDAZE WHERE DATA_SPRZEDAZY = " + args[0];
+        return jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Sprzedaz.class));
     }
     public void update(Sprzedaz sprzedaz) {
     }

@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -35,7 +37,7 @@ public class AppController implements WebMvcConfigurer {
         @Autowired
         private SamochodyDAO samochodyDAO;
 
-        @RequestMapping("/")
+        @RequestMapping(value = {"/", "/index"})
         public String viewHomePage(Model model) {
             model.addAttribute("listSprzedaze", sprzedazeDAO.list());
             model.addAttribute("listSamochody", samochodyDAO.list());
@@ -43,8 +45,7 @@ public class AppController implements WebMvcConfigurer {
         }
 
         @RequestMapping
-                ("/main"
-                )
+                ("/main")
         public String defaultAfterLogin
                 (HttpServletRequest request) {
             if
@@ -61,6 +62,18 @@ public class AppController implements WebMvcConfigurer {
             {
                 return "redirect:/index";
             }
+        }
+
+        @RequestMapping("/new")
+        public String showNewForm(Model model) {
+            Sprzedaz sprzedaz = new Sprzedaz();
+            model.addAttribute("sprzedaz", sprzedaz);
+            return "new_form";
+        }
+        @RequestMapping(value = "/save", method = RequestMethod.POST)
+        public String save(@ModelAttribute("sprzedaz") Sprzedaz sprzedaz) {
+            sprzedazeDAO.save(sprzedaz);
+            return "redirect:/";
         }
     }
 

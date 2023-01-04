@@ -40,4 +40,16 @@ class AplikacjaBdbtApplicationTests {
 		assertTrue(listSamochod.size() > 0); //w bazie na pewno są już jakieś samochody
 	}
 
+	@Test
+	void testSprzedazSave() {
+		Sprzedaz sprzedaz = new Sprzedaz();
+
+		sprzedaz.setDATA_SPRZEDAZY("2023-01-03");
+		sprzedaz.setNR_PRACOWNIKA(44);
+		sprzedaz.setNR_SAMOCHODU(8);
+		sprzedaz.setNR_KLIENTA(3);
+
+		dao.save(sprzedaz);
+	}
+
 }

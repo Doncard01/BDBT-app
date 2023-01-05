@@ -60,4 +60,16 @@ class AplikacjaBdbtApplicationTests {
 		assertNotNull(sprzedaz);
 	}
 
+	@Test
+	void testUpdate() {
+		Sprzedaz sprzedaz = new Sprzedaz();
+
+		sprzedaz.setDATA_SPRZEDAZY("2023-01-03");
+		sprzedaz.setNR_PRACOWNIKA(44);
+		sprzedaz.setNR_SAMOCHODU(13);
+		sprzedaz.setNR_KLIENTA(3);
+
+		SprzedazeDAO.update(sprzedaz);
+	}
+
 }

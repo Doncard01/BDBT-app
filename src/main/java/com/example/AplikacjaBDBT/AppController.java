@@ -85,6 +85,13 @@ public class AppController implements WebMvcConfigurer {
             sprzedazeDAO.save(sprzedaz);
             return "redirect:/";
         }
+
+        @RequestMapping(value = "/update", method = RequestMethod.POST)
+        public String update(@ModelAttribute("sprzedaz") Sprzedaz sprzedaz) {
+            sprzedazeDAO.update(sprzedaz);
+            return "redirect:/";
+        }
+
     }
 
     @RequestMapping(value={"/main_admin"})

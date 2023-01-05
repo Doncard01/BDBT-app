@@ -94,7 +94,7 @@
             <td th:text="${sprzedaz.NR_SAMOCHODU}">NR_SAMOCHODU</td>
             <td th:text="${sprzedaz.NR_KLIENTA}">NR_KLIENTA</td>
             <td>
-                <a th:href="@{/edit/{data_sprzedazy}(id=${sprzedaz.DATA_SPRZEDAZY})}">Edytuj</a>
+                <a th:href="@{'/edit/' + ${sprzedaz.DATA_SPRZEDAZY}}">Edytuj</a>
             </td>
         </tr>
         </tbody>

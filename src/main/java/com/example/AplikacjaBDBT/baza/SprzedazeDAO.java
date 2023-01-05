@@ -3,6 +3,8 @@ package com.example.AplikacjaBDBT.baza;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
@@ -42,6 +44,11 @@ public class SprzedazeDAO {
         return jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Sprzedaz.class));
     }
     public void update(Sprzedaz sprzedaz) {
+        String sql = "UPDATE SPRZEDAZE SET NR_PRACOWNIKA=:NR_PRACOWNIKA, NR_SAMOCHODU=:NR_SAMOCHODU, NR_KLIENTA=:NR_KLIENTA WHERE DATA_SPRZEDAZY=:DATA_SPRZEDAZY";
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(sprzedaz);
+        NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
+
+        template.update(sql, param);
     }
     public void delete(int id) {
     }

@@ -46,14 +46,6 @@ public class AppController implements WebMvcConfigurer {
             return "index";
         }
 
-        @RequestMapping("/edit/{data_sprzedazy}")
-        public ModelAndView showEditForm(@PathVariable(name = "data_sprzedazy") String data_sprzedazy) {
-            ModelAndView mav = new ModelAndView("edit_form");
-            Sprzedaz sprzedaz = sprzedazeDAO.get(data_sprzedazy);
-            mav.addObject("sprzedaz", sprzedaz);
-            return mav;
-        }
-
         @RequestMapping
                 ("/main")
         public String defaultAfterLogin
@@ -84,6 +76,14 @@ public class AppController implements WebMvcConfigurer {
         public String save(@ModelAttribute("sprzedaz") Sprzedaz sprzedaz) {
             sprzedazeDAO.save(sprzedaz);
             return "redirect:/";
+        }
+
+        @RequestMapping("/edit/{data_sprzedazy}")
+        public ModelAndView showEditForm(@PathVariable(name = "data_sprzedazy") String data_sprzedazy) {
+            ModelAndView mav = new ModelAndView("edit_form");
+            Sprzedaz sprzedaz = sprzedazeDAO.get(data_sprzedazy);
+            mav.addObject("sprzedaz", sprzedaz);
+            return mav;
         }
 
         @RequestMapping(value = "/update", method = RequestMethod.POST)

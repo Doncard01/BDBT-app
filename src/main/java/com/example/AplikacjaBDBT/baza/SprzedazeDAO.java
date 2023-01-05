@@ -16,7 +16,15 @@ public class SprzedazeDAO {
 
     public List<Sprzedaz> list(){
         String sql = "SELECT * FROM SPRZEDAZE";
-        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Sprzedaz.class));
+        List<Sprzedaz> listSprzedaze = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Sprzedaz.class));
+
+        for (Sprzedaz sprzedaz : listSprzedaze) {
+            String data = sprzedaz.getDATA_SPRZEDAZY();
+            data = data.substring(0, 10);
+            sprzedaz.setDATA_SPRZEDAZY(data);
+        }
+
+        return listSprzedaze;
     }
     public void save(Sprzedaz sprzedaz) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);

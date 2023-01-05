@@ -89,7 +89,7 @@
 
         <tbody>
         <tr th:each="sprzedaz : ${listSprzedaze}">
-            <td th:text="${sprzedaz.DATA_SPRZEDAZY.substring(0, 10)}">DATA_SPRZEDAZY</td>
+            <td th:text="${sprzedaz.DATA_SPRZEDAZY}">DATA_SPRZEDAZY</td>
             <td th:text="${sprzedaz.NR_PRACOWNIKA}">NR_PRACOWNIKA</td>
             <td th:text="${sprzedaz.NR_SAMOCHODU}">NR_SAMOCHODU</td>
             <td th:text="${sprzedaz.NR_KLIENTA}">NR_KLIENTA</td>

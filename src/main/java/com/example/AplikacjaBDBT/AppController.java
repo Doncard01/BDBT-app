@@ -17,7 +17,8 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import java.sql.Timestamp;
+
 
 @Configuration
 public class AppController implements WebMvcConfigurer {
@@ -74,6 +75,7 @@ public class AppController implements WebMvcConfigurer {
         }
         @RequestMapping(value = "/save", method = RequestMethod.POST)
         public String save(@ModelAttribute("sprzedaz") Sprzedaz sprzedaz) {
+            sprzedaz.setDATA_SPRZEDAZY(Timestamp.valueOf(sprzedaz.getDATA_SPRZEDAZY()).toString());
             sprzedazeDAO.save(sprzedaz);
             return "redirect:/";
         }

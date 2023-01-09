@@ -54,7 +54,7 @@ class AplikacjaBdbtApplicationTests {
 
 	@Test
 	void testGet() {
-		String data_sprzedazy = "2023-01-03";
+		String data_sprzedazy = "2022-12-02 12:00:00";
 		Sprzedaz sprzedaz = SprzedazeDAO.get(data_sprzedazy);
 
 		assertNotNull(sprzedaz);

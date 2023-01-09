@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+import java.sql.Timestamp;
 
 import java.util.List;
 
@@ -28,14 +29,8 @@ public class SprzedazeDAO {
     }
     public Sprzedaz get(String data_sprzedazy) {
         String sql = "SELECT * FROM SPRZEDAZE WHERE DATA_SPRZEDAZY = ?";
-        Object[] args = {data_sprzedazy};
+        Object[] args = {Timestamp.valueOf(data_sprzedazy)};
         return jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(Sprzedaz.class));
-    }
-
-    public Sprzedaz get1(String data_sprzedazy) {
-        Object[] args = {data_sprzedazy};
-        String sql = "SELECT * FROM SPRZEDAZE WHERE DATA_SPRZEDAZY = " + args[0];
-        return jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Sprzedaz.class));
     }
     public void update(Sprzedaz sprzedaz) {
         String sql = "UPDATE SPRZEDAZE SET NR_PRACOWNIKA=:NR_PRACOWNIKA, NR_SAMOCHODU=:NR_SAMOCHODU, NR_KLIENTA=:NR_KLIENTA WHERE DATA_SPRZEDAZY=:DATA_SPRZEDAZY";

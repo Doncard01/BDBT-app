@@ -44,9 +44,9 @@ class AplikacjaBdbtApplicationTests {
 	void testSprzedazSave() {
 		Sprzedaz sprzedaz = new Sprzedaz();
 
-		sprzedaz.setDATA_SPRZEDAZY("2023-01-03 00:00:00");
+		sprzedaz.setDATA_SPRZEDAZY("2023-01-03 13:00:00");
 		sprzedaz.setNR_PRACOWNIKA(44);
-		sprzedaz.setNR_SAMOCHODU(8);
+		sprzedaz.setNR_SAMOCHODU(13);
 		sprzedaz.setNR_KLIENTA(3);
 
 		SprzedazeDAO.save(sprzedaz);
@@ -64,7 +64,7 @@ class AplikacjaBdbtApplicationTests {
 	void testUpdate() {
 		Sprzedaz sprzedaz = new Sprzedaz();
 
-		sprzedaz.setDATA_SPRZEDAZY("2023-01-03");
+		sprzedaz.setDATA_SPRZEDAZY("2023-01-03 12:00:00");
 		sprzedaz.setNR_PRACOWNIKA(44);
 		sprzedaz.setNR_SAMOCHODU(13);
 		sprzedaz.setNR_KLIENTA(3);

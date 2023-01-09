@@ -33,6 +33,14 @@ public class SprzedazeDAO {
         Object[] args = {Timestamp.valueOf(data_sprzedazy)};
         return jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(Sprzedaz.class));
     }
+
+    public Sprzedaz get1(String data_sprzedazy) {
+        Object[] args = {Timestamp.valueOf(data_sprzedazy)};
+        String sql = "SELECT * FROM SPRZEDAZE WHERE DATA_SPRZEDAZY = " + args[0];
+        Sprzedaz sprzedaz = jdbcTemplate.queryForObject(sql,
+                BeanPropertyRowMapper.newInstance(Sprzedaz.class));
+        return sprzedaz;
+    }
     public void update(Sprzedaz sprzedaz) {
         String sql = "UPDATE SPRZEDAZE SET NR_PRACOWNIKA=:NR_PRACOWNIKA, NR_SAMOCHODU=:NR_SAMOCHODU, NR_KLIENTA=:NR_KLIENTA WHERE DATA_SPRZEDAZY=:DATA_SPRZEDAZY";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(sprzedaz);

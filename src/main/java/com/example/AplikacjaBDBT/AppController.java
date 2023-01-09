@@ -75,8 +75,8 @@ public class AppController implements WebMvcConfigurer {
         }
         @RequestMapping(value = "/save", method = RequestMethod.POST)
         public String save(@ModelAttribute("sprzedaz") Sprzedaz sprzedaz) {
-            sprzedaz.setDATA_SPRZEDAZY(Timestamp.valueOf(sprzedaz.getDATA_SPRZEDAZY()).toString());
             sprzedazeDAO.save(sprzedaz);
+
             return "redirect:/";
         }
 

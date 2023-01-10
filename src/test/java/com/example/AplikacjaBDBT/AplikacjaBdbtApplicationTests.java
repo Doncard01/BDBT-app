@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,7 +46,7 @@ class AplikacjaBdbtApplicationTests {
 	void testSprzedazSave() {
 		Sprzedaz sprzedaz = new Sprzedaz();
 
-		sprzedaz.setDATA_SPRZEDAZY("2023-01-03 13:00:00");
+		sprzedaz.setDATA_SPRZEDAZY(Timestamp.valueOf("2023-01-03 13:00:00"));
 		sprzedaz.setNR_PRACOWNIKA(44);
 		sprzedaz.setNR_SAMOCHODU(13);
 		sprzedaz.setNR_KLIENTA(3);
@@ -64,12 +66,18 @@ class AplikacjaBdbtApplicationTests {
 	void testUpdate() {
 		Sprzedaz sprzedaz = new Sprzedaz();
 
-		sprzedaz.setDATA_SPRZEDAZY("2023-01-03 12:00:00");
+		sprzedaz.setDATA_SPRZEDAZY(Timestamp.valueOf("2023-01-03 12:00:00"));
 		sprzedaz.setNR_PRACOWNIKA(44);
 		sprzedaz.setNR_SAMOCHODU(13);
 		sprzedaz.setNR_KLIENTA(3);
 
 		SprzedazeDAO.update(sprzedaz);
+	}
+
+	@Test
+	void testDelete() {
+		String data_sprzedazy = "2022-12-07 12:34:12";
+		SprzedazeDAO.delete(data_sprzedazy);
 	}
 
 }

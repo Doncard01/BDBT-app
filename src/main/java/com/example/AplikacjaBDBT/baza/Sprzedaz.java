@@ -1,9 +1,14 @@
 package com.example.AplikacjaBDBT.baza;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.sql.Time;
+import java.sql.Timestamp;
 
 public class Sprzedaz {
-    private String DATA_SPRZEDAZY;
+
+    private Timestamp DATA_SPRZEDAZY;
     private int NR_PRACOWNIKA;
     private int NR_SAMOCHODU;
     private int NR_KLIENTA;
@@ -12,7 +17,7 @@ public class Sprzedaz {
 
     }
 
-    public Sprzedaz(String DATA_SPRZEDAZY, int NR_PRACOWNIKA, int NR_SAMOCHODU, int NR_KLIENTA) {
+    public Sprzedaz(Timestamp DATA_SPRZEDAZY, int NR_PRACOWNIKA, int NR_SAMOCHODU, int NR_KLIENTA) {
         super();
         this.DATA_SPRZEDAZY = DATA_SPRZEDAZY;
         this.NR_PRACOWNIKA = NR_PRACOWNIKA;
@@ -20,11 +25,11 @@ public class Sprzedaz {
         this.NR_KLIENTA = NR_KLIENTA;
     }
 
-    public String getDATA_SPRZEDAZY() {
+    public Timestamp getDATA_SPRZEDAZY() {
         return DATA_SPRZEDAZY;
     }
 
-    public void setDATA_SPRZEDAZY(String DATA_SPRZEDAZY) {
+    public void setDATA_SPRZEDAZY(Timestamp DATA_SPRZEDAZY) {
         this.DATA_SPRZEDAZY = DATA_SPRZEDAZY;
     }
 

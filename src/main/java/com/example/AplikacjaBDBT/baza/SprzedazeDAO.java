@@ -48,8 +48,11 @@ public class SprzedazeDAO {
 
         template.update(sql, param);
     }
-    public void delete(int id) {
+    public void delete(String data_sprzedazy) {
+        String sql = "DELETE FROM SPRZEDAZE WHERE DATA_SPRZEDAZY = ?";
+        jdbcTemplate.update(sql, Timestamp.valueOf(data_sprzedazy));
     }
+
 
     public SprzedazeDAO(JdbcTemplate jdbcTemplate) {
         super();

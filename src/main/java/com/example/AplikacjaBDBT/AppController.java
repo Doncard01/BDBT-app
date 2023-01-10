@@ -94,6 +94,12 @@ public class AppController implements WebMvcConfigurer {
             return "redirect:/";
         }
 
+        @RequestMapping("/delete/{data_sprzedazy}")
+        public String delete(@PathVariable(name = "data_sprzedazy") String data_sprzedazy) {
+            sprzedazeDAO.delete(data_sprzedazy);
+            return "redirect:/";
+        }
+
     }
 
     @RequestMapping(value={"/main_admin"})

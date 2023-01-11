@@ -54,6 +54,7 @@ public class SprzedazeDAO {
     }
 
 
+
     public SprzedazeDAO(JdbcTemplate jdbcTemplate) {
         super();
         this.jdbcTemplate = jdbcTemplate;

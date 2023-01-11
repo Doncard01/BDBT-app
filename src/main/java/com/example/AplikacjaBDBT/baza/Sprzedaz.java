@@ -24,6 +24,9 @@ public class Sprzedaz {
         this.NR_SAMOCHODU = NR_SAMOCHODU;
         this.NR_KLIENTA = NR_KLIENTA;
     }
+    public String data(){
+        return DATA_SPRZEDAZY.toString().substring(0, 19);
+    }
 
     public Timestamp getDATA_SPRZEDAZY() {
         return DATA_SPRZEDAZY;

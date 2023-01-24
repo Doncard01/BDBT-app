@@ -1,9 +1,5 @@
 package com.example.AplikacjaBDBT.baza;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.sql.Time;
 import java.sql.Timestamp;
 
 public class Sprzedaz {
